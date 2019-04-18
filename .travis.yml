@@ -1,6 +1,7 @@
 env:
   global:
     - GO111MODULE=on
+    - CC_TEST_REPORTER_ID=c74e6420edb325076ac85c9f2744d38aefdfcc30158a180bd2148a5d1fd24af2
 
 dist: xenial
 language: go
