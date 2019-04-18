@@ -8,11 +8,15 @@ language: go
 go:
   - 1.11.x
   - tip
-before_install: sudo apt-get install -y jq
+before_install:
+  - apt-get install -y build-essential autoconf gcc libtool wget
+  - wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz
+  - tar -xvzf jq-1.6.tar.gz
+  - cd jq-1.6
+  - autoreconf -fi
+  - ./configure && make && make install
 install: go mod vendor
-script:
-  - ls /usr/local/include
-  - go test -mod vendor -coverprofile=c.out -covermode=atomic
+script: go test -mod vendor -coverprofile=c.out -covermode=atomic
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
