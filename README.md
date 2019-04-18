@@ -2,8 +2,8 @@
 
 [![GoDoc](https://godoc.org/github.com/efritz/go-jq?status.svg)](https://godoc.org/github.com/efritz/go-jq)
 [![Build Status](https://secure.travis-ci.org/efritz/go-jq.png)](http://travis-ci.org/efritz/go-jq)
-[![Maintainability](https://api.codeclimate.com/v1/badges/9aab8d8dce9e96f2ab9a/maintainability)](https://codeclimate.com/github/efritz/go-jq/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9aab8d8dce9e96f2ab9a/test_coverage)](https://codeclimate.com/github/efritz/go-jq/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4fa60f52b12fb6763983/maintainability)](https://codeclimate.com/github/efritz/go-jq/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4fa60f52b12fb6763983/test_coverage)](https://codeclimate.com/github/efritz/go-jq/test_coverage)
 
 Go bindings for JQ.
 
