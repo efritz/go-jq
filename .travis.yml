@@ -10,16 +10,18 @@ go:
   - tip
 before_install:
   - sudo apt-get install -y build-essential autoconf gcc libtool wget
+install:
+  # Ensure jq.h and libjq.so are available on the system
   - wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz
   - tar -xvzf jq-1.6.tar.gz
   - cd jq-1.6
-  - autoreconf -fi
-  - ./configure
-  - make
+  - autoreconf -fi && ./configure && make
   - sudo make install
   - cd ..
   - rm -rf jq-1.6 jq-1.6.tar.gz
-install: go mod vendor
+  # Setup environment for tests
+  - go mod vendor
+  - export LD_LIBRARY_PATH=/usr/local/lib
 script: go test -mod vendor -coverprofile=c.out -covermode=atomic
 
 before_script:
