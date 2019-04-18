@@ -10,9 +10,9 @@ go:
   - tip
 before_install: sudo apt-get install -y jq
 install: go mod vendor
-script: |
-  ls /usr/local/include
-  go test -mod vendor -coverprofile=c.out -covermode=atomic
+script:
+  - ls /usr/local/include
+  - go test -mod vendor -coverprofile=c.out -covermode=atomic
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
