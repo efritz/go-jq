@@ -14,7 +14,9 @@ before_install:
   - tar -xvzf jq-1.6.tar.gz
   - cd jq-1.6
   - autoreconf -fi
-  - ./configure && make && make install
+  - ./configure
+  - make
+  - sudo make install
 install: go mod vendor
 script: go test -mod vendor -coverprofile=c.out -covermode=atomic
 
