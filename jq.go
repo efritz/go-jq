@@ -44,6 +44,15 @@ func Run(program string, value interface{}) ([]interface{}, error) {
 	return readValues(jq), nil
 }
 
+// Validate returns thehe JQ parse error when the given expression
+// fails compilation.
+func Validate(program string) error {
+	jq := C.jq_init()
+	defer C.jq_teardown(&jq)
+
+	return compile(jq, program)
+}
+
 func compile(jq *C.jq_state, program string) error {
 	cs := C.CString(program)
 	defer C.free(unsafe.Pointer(cs))

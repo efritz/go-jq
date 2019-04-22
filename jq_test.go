@@ -7,6 +7,12 @@ import (
 
 type JQSuite struct{}
 
+func (s *JQSuite) TestValidate(t sweet.T) {
+	err := Validate(".Item.[]")
+	Expect(err).NotTo(BeNil())
+	Expect(err.Error()).To(HavePrefix("jq: error: syntax error, unexpected '['"))
+}
+
 func (s *JQSuite) TestRunBasic(t sweet.T) {
 	results, err := Run(".", "foobar")
 	Expect(err).To(BeNil())
